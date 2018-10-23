@@ -1,0 +1,50 @@
+!Centro de estudos longitudinais da Inglaterra
+TITLE: MEU QUARTO MODELO DE REGRESSAO LOGISTICA - CIGARRO WEIGTH;
+DATA: FILE IS NCDS.dat;
+VARIABLE: names are
+ncdsid
+n646kg
+n2928
+n497
+a10_divorce
+SexN
+n133
+n134
+n135
+n136
+n144
+n145
+n146
+n504238
+n504239
+n504240
+n504241
+mal01N
+mal02N
+mal03N
+mal04N;
+
+usevariable are n646kg n133 SexN;
+categorical are n133;
+missing are all (-9999); 
+missing are all (-99);
+missing are all (9999);
+missing is SexN (-1); 
+
+! CAUTION WITHOUT THIS ITS GONNA BE A PROBIT FUNCTION
+ANALYSIS:
+ESTIMATOR = ML;
+
+MODEL:
+
+ n133 ON n646kg SexN;
+
+OUTPUT:STANDARDIZED
+OUTPUT:CINTERVAL
+
+PLOT: type = plot3;
+
+
+
+
+

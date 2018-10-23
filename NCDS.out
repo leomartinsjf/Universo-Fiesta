@@ -1,0 +1,353 @@
+Mplus VERSION 8.1 (Mac)
+MUTHEN & MUTHEN
+10/22/2018   4:34 PM
+
+INPUT INSTRUCTIONS
+
+  !Centro de estudos longitudinais da Inglaterra
+  TITLE: MEU QUARTO MODELO DE REGRESSAO LOGISTICA - CIGARRO WEIGTH;
+  DATA: FILE IS NCDS.dat;
+  VARIABLE: names are
+  ncdsid
+  n646kg
+  n2928
+  n497
+  a10_divorce
+  SexN
+  n133
+  n134
+  n135
+  n136
+  n144
+  n145
+  n146
+  n504238
+  n504239
+  n504240
+  n504241
+  mal01N
+  mal02N
+  mal03N
+  mal04N;
+
+  usevariable are n646kg n133 SexN;
+  categorical are n133;
+  missing are all (-9999);
+  missing are all (-99);
+  missing are all (9999);
+  missing is SexN (-1);
+
+  ! CAUTION WITHOUT THIS ITS GONNA BE A PROBIT FUNCTION
+  ANALYSIS:
+  ESTIMATOR = ML;
+
+  MODEL:
+
+   n133 ON n646kg SexN;
+
+  OUTPUT:STANDARDIZED
+  OUTPUT:CINTERVAL
+
+  PLOT: type = plot3;
+
+
+
+
+
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  1699
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  1775
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  3185
+   3 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+MEU QUARTO MODELO DE REGRESSAO LOGISTICA - CIGARRO WEIGTH;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                       13596
+
+Number of dependent variables                                    1
+Number of independent variables                                  2
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   N133
+
+Observed independent variables
+   N646KG      SEXN
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-02
+    Relative loglikelihood change                        0.100D-05
+    Derivative                                           0.100D-02
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Integration Specifications
+  Type                                                    STANDARD
+  Number of integration points                                  15
+  Dimensions of numerical integration                            0
+  Adaptive quadrature                                           ON
+Link                                                         LOGIT
+Cholesky                                                       OFF
+
+Input data file(s)
+  NCDS.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of y missing data patterns           0
+     Number of u missing data patterns           1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    N133
+      Category 1    0.687         9346.000
+      Category 2    0.313         4250.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     N646KG                3.337      -0.070       1.021    0.01%       2.948      3.203      3.345
+           13596.000       0.273       0.598       5.783    0.01%       3.459      3.742
+     SEXN                  1.488       0.047       1.000   51.17%       1.000      1.000      1.000
+           13596.000       0.250      -1.998       2.000   48.83%       2.000      2.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        3
+
+Loglikelihood
+
+          H0 Value                       -8407.574
+
+Information Criteria
+
+          Akaike (AIC)                   16821.149
+          Bayesian (BIC)                 16843.701
+          Sample-Size Adjusted BIC       16834.168
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ N133       ON
+    N646KG            -0.159      0.036     -4.444      0.000
+    SEXN              -0.299      0.038     -7.958      0.000
+
+ Thresholds
+    N133$1            -0.183      0.139     -1.319      0.187
+
+
+LOGISTIC REGRESSION ODDS RATIO RESULTS
+
+                                         (Est. - 1) Two-Tailed
+                    Estimate       S.E.     / S.E.    P-Value
+
+ N133       ON
+    N646KG             0.853      0.031     -4.818      0.000
+    SEXN               0.742      0.028     -9.275      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ N133       ON
+    N646KG            -0.046      0.010     -4.452      0.000
+    SEXN              -0.082      0.010     -8.001      0.000
+
+ Thresholds
+    N133$1            -0.101      0.076     -1.321      0.187
+
+
+STDY Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ N133       ON
+    N646KG            -0.087      0.020     -4.453      0.000
+    SEXN              -0.164      0.020     -8.011      0.000
+
+ Thresholds
+    N133$1            -0.101      0.076     -1.321      0.187
+
+
+STD Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ N133       ON
+    N646KG            -0.159      0.036     -4.444      0.000
+    SEXN              -0.299      0.038     -7.958      0.000
+
+ Thresholds
+    N133$1            -0.183      0.139     -1.319      0.187
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    N133               0.008      0.002      4.356      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.115E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ N133     ON
+    N646KG          -0.252      -0.230      -0.218      -0.159      -0.100      -0.089      -0.067
+    SEXN            -0.396      -0.372      -0.361      -0.299      -0.237      -0.225      -0.202
+
+ Thresholds
+    N133$1          -0.541      -0.456      -0.412      -0.183       0.045       0.089       0.175
+
+
+CONFIDENCE INTERVALS FOR THE LOGISTIC REGRESSION ODDS RATIO RESULTS
+
+ N133     ON
+    N646KG           0.778       0.795       0.804       0.853       0.905       0.915       0.935
+    SEXN             0.673       0.689       0.697       0.742       0.789       0.798       0.817
+
+
+CONFIDENCE INTERVALS OF STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ N133     ON
+    N646KG          -0.072      -0.066      -0.063      -0.046      -0.029      -0.026      -0.019
+    SEXN            -0.108      -0.102      -0.099      -0.082      -0.065      -0.062      -0.056
+
+ Thresholds
+    N133$1          -0.297      -0.250      -0.226      -0.101       0.025       0.049       0.096
+
+
+STDY Standardization
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ N133     ON
+    N646KG          -0.138      -0.126      -0.120      -0.087      -0.055      -0.049      -0.037
+    SEXN            -0.217      -0.204      -0.198      -0.164      -0.130      -0.124      -0.111
+
+ Thresholds
+    N133$1          -0.297      -0.250      -0.226      -0.101       0.025       0.049       0.096
+
+
+STD Standardization
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ N133     ON
+    N646KG          -0.252      -0.230      -0.218      -0.159      -0.100      -0.089      -0.067
+    SEXN            -0.396      -0.372      -0.361      -0.299      -0.237      -0.225      -0.202
+
+ Thresholds
+    N133$1          -0.541      -0.456      -0.412      -0.183       0.045       0.089       0.175
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values, estimated values, residuals)
+  Scatterplots (sample values, estimated values, residuals)
+  Sample proportions, estimated and conditional estimated probabilities
+
+     Beginning Time:  16:34:28
+        Ending Time:  16:34:28
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2018 Muthen & Muthen
